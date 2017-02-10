@@ -32,6 +32,10 @@ def delta_E_zee(gf, b_ext):
 def ev2freq(ev):
     return ev / (4.135667516 * (10 ** -15)) #hz/ev
 
+# covert freq to ev [input unit: hz]
+def freq2ev(freq):
+    return freq * (4.135667516 * (10 ** -15))
+
 # convert synthesizer voltage to output function frequency
 def VtoFreq(V,mid_f,step_f,num_f):
     return (V/10)*(num_f*step_f)+mid_f-step_f*(num_f/2)
@@ -42,3 +46,10 @@ def gauss_function(x,a,x0,sigma):
 
 def lorentzian_function(x,a,x0,sigma):
     return 1 - a*(0.5*sigma)/((x-x0)**2+0.25*(sigma)**2)
+
+# given the resonance frequency and g-factor, compute the external B field in weak field limit
+def B_ext(gf, freq):
+    delta_E = freq2ev(freq)
+    return delta_E / (gf * mu_b) #[unit: T]
+
+
