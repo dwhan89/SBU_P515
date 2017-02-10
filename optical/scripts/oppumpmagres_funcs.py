@@ -24,9 +24,9 @@ def calc_gf(f, i, j, l):
 
 # zeeman splitting energy shift in weak b-field limit with B_ext 
 # [unit: ev .. ? ]  <--- Double check this 
-def delta_E_zee(gf, b_ext):
-    delta_E_zeeman = gf * (mu_b) * b_ext # / hbar <- lab manual has this ...  
-    return delta_E_zeeman
+def delta_E_hf_weak(gf, b_ext):
+    delta_E_hf = gf * (mu_b) * b_ext # / hbar <- lab manual has this ...  
+    return delta_E_hf
 
 # convert ev to freq [unit: hz] 
 def ev2freq(ev):
@@ -48,8 +48,13 @@ def lorentzian_function(x,a,x0,sigma):
     return 1 - a*(0.5*sigma)/((x-x0)**2+0.25*(sigma)**2)
 
 # given the resonance frequency and g-factor, compute the external B field in weak field limit
-def B_ext(gf, freq):
+def B_ext_weak(gf, freq):
     delta_E = freq2ev(freq)
     return delta_E / (gf * mu_b) #[unit: T]
+
+# calc the field strength paramter x
+def calc_x(gj, gi, delta_E_HF, B_ext):
+    return math.abs(((gj-gi) * mu_b * B_ext) / delta_E_HF)
+
 
 
