@@ -19,3 +19,8 @@ Rb87_res_freq = func.ev2freq(del_E_87)
 
 print("zeeman resonant freq of Rb85 is %f Hz" % Rb85_res_freq)
 print("zeeman resonant freq of Rb87 is %f Hz" % Rb87_res_freq)
+
+B_ext_recovered = func.B_ext(gf_85, Rb85_res_freq)
+
+print "input external B field is %f T" % func.B_earth
+print "recovered external B field is %f T" % B_ext_recovered
