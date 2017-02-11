@@ -1,2 +1,7 @@
 This folder contains Optical Pumping Experiement related information.
 
+TODO -- krw: incorporate functionality into resonance-fit.py to write (append) fit 
+peak parameter to a file, along with the corresponding applied B-field
+
+TODO -- dw: calculation of applied B-field as a function of current pushed through
+Maxwell coils
