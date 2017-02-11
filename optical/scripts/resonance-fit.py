@@ -46,7 +46,15 @@ plt.legend()
 plt.ylabel("$I/I_{0}$")
 plt.xlabel("frequency (Hz)")
 
-print("mean = %f " % popt[1])
-print("sigma(mean) = %f " % perr[1])
+print("mean = %f Hz" % popt[1])
+print("sigma(mean) = %f Hz" % perr[1])
+
+gf_85 = func.calc_gf(f=3, i=2.5, j=0.5, l=0)
+ambientB = func.B_ext_weak(gf_85, popt[1])
+
+print("ambient field = %f T" % ambientB)
+outFile = open("../data/ambientFieldmeas.txt","a")
+outFile.write(str(ambientB)+"\n")
+outFile.close()
 
 plt.show()
