@@ -3,5 +3,13 @@ This folder contains Optical Pumping Experiement related information.
 TODO -- krw: incorporate functionality into resonance-fit.py to write (append) fit 
 peak parameter to a file, along with the corresponding applied B-field
 
-TODO -- dw: calculation of applied B-field as a function of current pushed through
-Maxwell coils
+TODO -- dw: 
+1) calculation of applied B-field as a function of current pushed through Maxwell coils [done Feb 11th]
+2) doublecheck Maxwell coils dimensions and the number of turns of each coil
+3) calculate the resonance frequnecy in high B field limit
+
+Note:
+1. The B-field per unit current on Niv et al. report is incorrect. The first and the third terms on RHS
+   should be devided by 2
+
+
