@@ -1,0 +1,7 @@
+\contentsline {title}{APS Author Guide for REVT\kern -.1667em\lower .5ex\hbox {E}\kern -.125emX\spacefactor \@m {}\ \nobreakspace {}4.1\\(Version 1.0)}{1}{}
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Introduction}{1}{}
+\contentsline {section}{\numberline {II}Formatting}{1}{}
+\contentsline {subsection}{\numberline {II.1}Preprint, reprint, and twocolumn options}{1}{}
