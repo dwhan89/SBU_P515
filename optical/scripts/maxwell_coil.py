@@ -30,8 +30,8 @@ I = np.arange(0, 1.0e-3, 1.0e-5)
 
 B_ext = B_ext_net_vec(B_per_I, I, func.B_earth)
 
-I     = I * 10.0e3     # unit conversion from A to mA
-B_ext = B_ext * 10.0e3 # unit conversion from T to mT
+I     = I * 1.0e3     # unit conversion from A to mA
+B_ext = B_ext * 1.0e3 # unit conversion from T to mT
 
 plt.plot(I, B_ext)
 plt.xlabel('Current on Coil [mA]')
