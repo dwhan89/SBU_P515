@@ -15,4 +15,12 @@ Note:
 1. The B-field per unit current on Niv et al. report is incorrect. The first and the third terms on RHS
    should be devided by 2
 
-
+TODO -- both:
+1) Write! By Feb. 14 we should have all the data and plots (analysis code is
+   already written) we need for the following measurements:
+	- Absorption cross section
+	- Ambient field
+	- Magnetic moment (Can we pull apart different g-factors from this?
+          Maybe by considering the magnetic moments of both 85Rb and 87Rb?)
+   We should try and write up a "minireport" about these measurements by Fri. Feb. 17.
+   This will be the beginning of the full report.
