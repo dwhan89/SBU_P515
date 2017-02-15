@@ -6,12 +6,12 @@ from scipy.optimize import curve_fit
 import oppumpmagres_funcs as func
 
 # for converting V --> frequency (Hz)
-mid_freq = 200e3
-step_freq = 50
+mid_freq = 299e3
+step_freq = 15
 num_freq = 1000
 
 # for data handling
-datafile = "../data/rb85res_run3.txt"
+datafile = "../data/feb14/rb87/ambientres-87rb-run20.txt"
 I_data = []
 f_data = []
 maxI = -99999;
@@ -50,11 +50,12 @@ print("mean = %f Hz" % popt[1])
 print("sigma(mean) = %f Hz" % perr[1])
 
 gf_85 = func.calc_gf(f=3, i=2.5, j=0.5, l=0)
-ambientB = func.B_ext_weak(gf_85, popt[1])
+gf_87 = func.calc_gf(f=2, i=1.5, j=0.5, l=0)
+ambientB = func.B_ext_weak(gf_87, popt[1])
 
 print("ambient field = %f T" % ambientB)
-outFile = open("../data/ambientFieldmeas.txt","a")
+outFile = open("../data/RB87ambientFieldmeas.txt","a")
 outFile.write(str(ambientB)+"\n")
 outFile.close()
 
-plt.show()
+#plt.show()
