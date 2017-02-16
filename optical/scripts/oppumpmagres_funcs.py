@@ -108,7 +108,7 @@ def B_ext_net(B_per_I, I_coil, B_ambient):
     '''
     return (B_per_I * I_coil) + B_ambient 
 
-
+MaxwellBperI = BperI_maxwell(N_A_coil, x_A_coil, R_A_coil, N_B_coil, x_B_coil, R_B_coil, N_C_coil, x_C_coil, R_C_coil)
 
 
 
