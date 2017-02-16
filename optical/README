@@ -1,13 +1,15 @@
 This folder contains Optical Pumping Experiement related information.
 
 TODO -- krw:
-1) incorporate functionality into resonance-fit.py to write (append) fit 
+*) incorporate functionality into resonance-fit.py to write (append) fit 
    peak parameter to a file, and write script to read that file [done Feb. 11]
 	*NOTE: can easily be editted to include the corresponding applied B-field
 	       for the magnetic moment measurement (delta(E) vs. B_applied slope)
+1) put error bars on magnetic moment plot
+2) move bfield calculation and parameter definitions into oppumpmagres_funcs and have resonance-fit.py call the result
 
 TODO -- dw: 
-1) calculation of applied B-field as a function of current pushed through Maxwell coils [done Feb 11th]
+*) calculation of applied B-field as a function of current pushed through Maxwell coils [done Feb 11th]
 2) doublecheck Maxwell coils dimensions and the number of turns of each coil
 3) calculate the resonance frequnecy in high B field limit
 
