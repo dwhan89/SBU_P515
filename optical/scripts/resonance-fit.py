@@ -6,11 +6,13 @@ from scipy.optimize import curve_fit
 import oppumpmagres_funcs as func
 
 # for converting V --> frequency (Hz)
-mid_freq_list = [300e3,360e3,420e3,480e3,540e3,590e3,650e3,710e3,770e3,820e3,880e3,940e3,1000e3,1050e3,1100e3,1160e3,1230e3,1280e3,1340e3,1390e3]
-step_freq_list = [50]*20
+#mid_freq_list = [300e3,360e3,420e3,480e3,540e3,590e3,650e3,710e3,770e3,820e3,880e3,940e3,1000e3,1050e3,1100e3,1160e3,1230e3,1280e3,1340e3,1390e3]
+mid_freq_list = [945.0e3]*20
+step_freq_list = [20]*20
 num_freq_list = [1000]*20
+I_maxwell_list = [-384.0e-3]*20
 #for converting I in maxwell coils to DC B-Field
-I_maxwell_list = [-0.00e-3,-20.00e-3,-40.10e-3,-60.10e-3,-79.80e-3,-100.00e-3,-119.70e-3,-140.00e-3,-160.30e-3,-180.50e-3,-200.10e-3,-220.20e-3,-240.20e-3,-260.50e-3,-279.70e-3,-299.90e-3,-320.00e-3,-340.20e-3,-359.70e-3,-380.20e-3] # [unit = A]
+#I_maxwell_list = [-0.00e-3,-20.00e-3,-40.10e-3,-60.10e-3,-79.80e-3,-100.00e-3,-119.70e-3,-140.00e-3,-160.30e-3,-180.50e-3,-200.10e-3,-220.20e-3,-240.20e-3,-260.50e-3,-279.70e-3,-299.90e-3,-320.00e-3,-340.20e-3,-359.70e-3,-380.20e-3] # [unit = A]
 
 #choose  isotope
 gf_85 = func.calc_gf(f=3, i=2.5, j=0.5, l=0)
@@ -20,11 +22,13 @@ gf = gf_87
 
 # for data handling
 datafile_list = []
-datafile_base = "../data/magmom/rb87/rb87-magmom-run"
+datafile_base = "../data/4v_err/rb85/rb85-4verr-run"
+#datafile_base = "../data/4v_err/rb85/rb85-4verr-run"
+#datafile_base = "../data/magmom/rb87/rb87-magmom-run"
 I_data = []
 f_data = []
 
-for j in range(1,21):
+for j in range(1,11):
     datafile_list.append(datafile_base + str(j) + '.txt')
 
 def calcEvsB(datafile,mid_freq,step_freq,num_freq,I_maxwell):
@@ -82,44 +86,33 @@ def calcEvsB(datafile,mid_freq,step_freq,num_freq,I_maxwell):
     #-------------------------------------
     #UNCOMMENT TO PRINT RESULT TO FILE
     #-------------------------------------
-    #outFile = open("../data/RB87ambientFieldmeas.txt","a")
-    #outFile.write(str(ambientB)+"\n")
-    #outFile.close()
+    outFile = open("../data/4v_err/rb85/highBsigma.txt","a")
+    #outFile = open("../data/feb14/rb85/RB85-resPeakDist.txt","a")
+    outFile.write(str(res_peak)+"\n")
+    outFile.close()
 
     # ~~~ Everything above for ambient field measurement
     # ~~~ Everything below for magnetic moment measurement
 
-    # got this number from Niv's report. Please double check the number
-    N_A = 110    # number of turns in Maxwell Coil A
-    N_B = 142    #            ''                   B
-    N_C = 110    #            ''                   C
-
-    x_A = 0.262     # distance to the plane of the coil B [unit: m]
-    x_B = 0.0       #            ''
-    x_C = 0.262     #            ''
-
-    R_A = 0.591/2.0 # radius of the Maxwell coil A [unit: m]
-    R_B = 0.784/2.0 #              ''            B
-    R_C = 0.591/2.0 #              ''            C
-
-    B_per_I = func.BperI_maxwell(N_A, x_A, R_A, N_B, x_B, R_B, N_C, x_C, R_C) #[unit T/A]
-    B_maxwell = B_per_I*I_maxwell
+    B_per_I = func.MaxwellBperI #[unit T/A]
+    B_maxwell = B_per_I*I_maxwell 
 
     deltaE = func.freq2ev(res_peak)
     print("maxwell field = %f T" % B_maxwell)
+    print("Maxwell B = %f T" % (B_per_I*I_maxwell))
 
     #-------------------------------------
     #UNCOMMENT TO PRINT RESULT TO FILE
     #-------------------------------------
-    outFile = open("../data/MagMomMeas-Rb87-test.txt","a")
-    outFile.write(str(deltaE)+"	" + str(B_maxwell)  + "\n")
-    outFile.close()
+#    outFile = open("../data/MagMomMeas-Rb87.txt","a")
+#    outFile.write(str(deltaE)+"	" + str(B_maxwell)  + "\n")
+#    outFile.close()
 
     #plt.show()
     return
 
 
-for k in range(0,20):
+for k in range(0,10):
     calcEvsB(datafile_list[k],mid_freq_list[k],step_freq_list[k],num_freq_list[k],I_maxwell_list[k])
 
 	
