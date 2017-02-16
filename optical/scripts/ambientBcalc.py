@@ -5,7 +5,7 @@ import oppumpmagres_funcs as func
 
 ambientB_list = []
 
-with open("../data/RB87ambientFieldmeas.txt",newline='') as csvfile:
+with open("../data/feb14/rb87/RB87ambientFieldmeas.txt",newline='') as csvfile:
      reader = csv.reader(csvfile, delimiter="	")
      for row in reader:
           Ba = float(row[0])*1000000  #in microTesla
