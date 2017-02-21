@@ -42,6 +42,7 @@ plt.yticks(fontsize=16)
 plt.ylabel(r"$\Delta E$ $[neV]$",size=22,fontweight='bold')
 plt.xlabel(r"$B_{app}$ $[\mu T]$",size=22,fontweight='bold')
 plt.margins(0.05)
+plt.gcf().subplots_adjust(bottom=0.1)
 
 # put rb85 data on plot
 plt.scatter(appB85_list, deltaE85_list,label='$^{85}$Rb data')

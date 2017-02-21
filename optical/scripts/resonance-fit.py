@@ -5,6 +5,10 @@ import csv
 from scipy.optimize import curve_fit
 import oppumpmagres_funcs as func
 
+#for bold math
+plt.rc('text', usetex=True)
+plt.rcParams['text.latex.preamble'] = [r'\boldmath']
+
 # for converting V --> frequency (Hz)
 #mid_freq_list = [300e3,360e3,420e3,480e3,540e3,590e3,650e3,710e3,770e3,820e3,880e3,940e3,1000e3,1050e3,1100e3,1160e3,1230e3,1280e3,1340e3,1390e3]
 mid_freq_list = [945.0e3]*20
@@ -71,12 +75,20 @@ def calcEvsB(datafile,mid_freq,step_freq,num_freq,I_maxwell):
     fit_string = 'mean = %.2f +/- %.2f Hz' % (res_peak, res_peak_err)
 
     # plot I/I_0 vs. n 
-    plt.scatter(f_data,Inorm_data,label='data')
-    plt.plot(x,func.lorentzian_function(x,*popt),'r-',label='Lorentzian fit')
-    plt.legend()
-    plt.ylabel("$I/I_{0}$")
-    plt.xlabel("frequency (Hz)")
+    plt.plot(f_data,Inorm_data,label='data',color='black')
+    #plt.plot(x,func.lorentzian_function(x,*popt),'r-',label='Lorentzian fit')
+    #plt.legend()
+    plt.ylabel(r"$\frac{I}{I_{0}}$",rotation=0,labelpad=15,size=22,fontweight='bold')
+    plt.xlabel(r"\textbf{Frequency [kHz]}",labelpad=10,size=22,fontweight='bold')
     plt.text(296000,1.005,fit_string, ha='center', va='center',fontweight='bold')
+
+    plt.gcf().subplots_adjust(left=0.15)
+    plt.gcf().subplots_adjust(bottom=0.12)
+    plt.grid(True, which='both')
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
+    plt.ylim([0.999,1.0001])
+    plt.margins(0.05)
 
     print("mean = %f +- %f Hz" % (res_peak,res_peak_err))
     ambientB = func.B_ext_weak(gf, res_peak)
@@ -86,10 +98,10 @@ def calcEvsB(datafile,mid_freq,step_freq,num_freq,I_maxwell):
     #-------------------------------------
     #UNCOMMENT TO PRINT RESULT TO FILE
     #-------------------------------------
-    outFile = open("../data/4v_err/rb85/highBsigma.txt","a")
+    #outFile = open("../data/4v_err/rb85/highBsigma.txt","a")
     #outFile = open("../data/feb14/rb85/RB85-resPeakDist.txt","a")
-    outFile.write(str(res_peak)+"\n")
-    outFile.close()
+    #outFile.write(str(res_peak)+"\n")
+    #outFile.close()
 
     # ~~~ Everything above for ambient field measurement
     # ~~~ Everything below for magnetic moment measurement
@@ -108,12 +120,14 @@ def calcEvsB(datafile,mid_freq,step_freq,num_freq,I_maxwell):
 #    outFile.write(str(deltaE)+"	" + str(B_maxwell)  + "\n")
 #    outFile.close()
 
-    #plt.show()
+    plt.show()
     return
 
 
-for k in range(0,10):
-    calcEvsB(datafile_list[k],mid_freq_list[k],step_freq_list[k],num_freq_list[k],I_maxwell_list[k])
+#for k in range(0,10):
+    #calcEvsB(datafile_list[k],mid_freq_list[k],step_freq_list[k],num_freq_list[k],I_maxwell_list[k])
+
+calcEvsB("../data/multi_splitting/rb85/rb85_multi_splitting.txt",2079.0,20.0e-3,1000,-975.9)
 
 	
 
