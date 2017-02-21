@@ -1,15 +1,13 @@
 This folder contains Optical Pumping Experiement related information.
 
 TODO -- krw:
-*) incorporate functionality into resonance-fit.py to write (append) fit 
-   peak parameter to a file, and write script to read that file [done Feb. 11]
-	*NOTE: can easily be editted to include the corresponding applied B-field
-	       for the magnetic moment measurement (delta(E) vs. B_applied slope)
 1) put error bars on magnetic moment plot
-2) move bfield calculation and parameter definitions into oppumpmagres_funcs and have resonance-fit.py call the result
+     - deltaE error bars DONE
+     - B_{app} error bars NEEDED
+2) hyperfine splitting spectrum plot
+3) error bars onto cross section plot
 
 TODO -- dw: 
-*) calculation of applied B-field as a function of current pushed through Maxwell coils [done Feb 11th]
 2) doublecheck Maxwell coils dimensions and the number of turns of each coil
 3) calculate the resonance frequnecy in high B field limit
 
@@ -18,11 +16,4 @@ Note:
    should be devided by 2
 
 TODO -- both:
-1) Write! By Feb. 14 we should have all the data and plots (analysis code is
-   already written) we need for the following measurements:
-	- Absorption cross section
-	- Ambient field
-	- Magnetic moment (Can we pull apart different g-factors from this?
-          Maybe by considering the magnetic moments of both 85Rb and 87Rb?)
-   We should try and write up a "minireport" about these measurements by Fri. Feb. 17.
-   This will be the beginning of the full report.
+1) WRITE!!!
