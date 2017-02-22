@@ -29,7 +29,6 @@ popt85, pcov85 = curve_fit(linear,appB85_list,deltaE85_list)
 x85 = np.linspace(min(appB85_list),max(appB85_list), num=1000)
 perr85 = np.sqrt(np.diag(pcov85))
 
-
 #deltaE85_err    = [20*x*deltaE_relErr for x in deltaE85_list] #20 sigma error bars!
 deltaE85_err    = [0.001318999*50]*len(deltaE85_list) #50 sigma error bars!
 
@@ -54,14 +53,17 @@ plt.text(20.,0.7,r'\textbf{$^{85}$Rb slope = (%.5f +/- %.5f)} $\times10^{-3}$ $\
 
 deltaE87_list = []
 appB87_list   = []
+sig_appB87    = []
 
 with open("../data/magmom/rb87/MagMomMeas-Rb87.txt",newline='') as csvfile:
      reader = csv.reader(csvfile, delimiter="	")
      for row in reader:
-          dE87 = float(row[0])*1.0e9 #[neV]
-          B87  = float(row[1])*1.0e6 #[uT]
+          dE87   = float(row[0])*1.0e9 #[neV]
+          B87    = float(row[1])*1.0e6 #[uT]
+          sigB87 = float(row[2])*1.0e6*3 #[uT] 3 sigma error bars!
           deltaE87_list.append(dE87)
           appB87_list.append(abs(B87))
+          sig_appB87.append(sigB87)
 
 popt87, pcov87 = curve_fit(linear,appB87_list,deltaE87_list)
 x87 = np.linspace(min(appB87_list),max(appB87_list), num=1000)
@@ -71,7 +73,7 @@ perr87 = np.sqrt(np.diag(pcov87))
 deltaE87_err    = [0.001318999*50]*len(deltaE87_list) #50 sigma error bars!
 
 plt.scatter(appB87_list, deltaE87_list,label='$^{87}$Rb data',color='red')
-plt.errorbar(appB87_list,deltaE87_list,yerr=deltaE87_err,color='black')
+plt.errorbar(appB87_list,deltaE87_list,xerr=sig_appB87,yerr=deltaE87_err,color='black')
 plt.plot(x87,linear(x87,*popt87),label='$^{87}$Rb fit',color='red')
 plt.text(20.,0.2,r'\textbf{$^{87}$Rb slope = (%f +/- %f)} $\times10^{-3}$ $\frac{ev}{T}$' % (popt87[1],perr87[1]), ha='left', va='center',fontsize=16,fontweight='bold')
 

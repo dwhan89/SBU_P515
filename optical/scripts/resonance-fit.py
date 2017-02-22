@@ -10,13 +10,14 @@ plt.rc('text', usetex=True)
 plt.rcParams['text.latex.preamble'] = [r'\boldmath']
 
 # for converting V --> frequency (Hz)
-#mid_freq_list = [300e3,360e3,420e3,480e3,540e3,590e3,650e3,710e3,770e3,820e3,880e3,940e3,1000e3,1050e3,1100e3,1160e3,1230e3,1280e3,1340e3,1390e3]
-mid_freq_list = [945.0e3]*20
-step_freq_list = [20]*20
-num_freq_list = [1000]*20
-I_maxwell_list = [-384.0e-3]*20
+mid_freq_list = [300e3,360e3,420e3,480e3,540e3,590e3,650e3,710e3,770e3,820e3,880e3,940e3,1000e3,1050e3,1100e3,1160e3,1230e3,1280e3,1340e3,1390e3]
+#mid_freq_list  = [945.0e3]*20
+step_freq_list = [50]*20
+num_freq_list  = [1000]*20
+#I_maxwell_list = [-384.0e-3]*20
+sig_I_maxwell  = 0.01e-3
 #for converting I in maxwell coils to DC B-Field
-#I_maxwell_list = [-0.00e-3,-20.00e-3,-40.10e-3,-60.10e-3,-79.80e-3,-100.00e-3,-119.70e-3,-140.00e-3,-160.30e-3,-180.50e-3,-200.10e-3,-220.20e-3,-240.20e-3,-260.50e-3,-279.70e-3,-299.90e-3,-320.00e-3,-340.20e-3,-359.70e-3,-380.20e-3] # [unit = A]
+I_maxwell_list = [-0.00e-3,-20.00e-3,-40.10e-3,-60.10e-3,-79.80e-3,-100.00e-3,-119.70e-3,-140.00e-3,-160.30e-3,-180.50e-3,-200.10e-3,-220.20e-3,-240.20e-3,-260.50e-3,-279.70e-3,-299.90e-3,-320.00e-3,-340.20e-3,-359.70e-3,-380.20e-3] # [unit = A]
 
 #choose  isotope
 gf_85 = func.calc_gf(f=3, i=2.5, j=0.5, l=0)
@@ -26,13 +27,13 @@ gf = gf_87
 
 # for data handling
 datafile_list = []
-datafile_base = "../data/4v_err/rb85/rb85-4verr-run"
 #datafile_base = "../data/4v_err/rb85/rb85-4verr-run"
-#datafile_base = "../data/magmom/rb87/rb87-magmom-run"
+#datafile_base = "../data/4v_err/rb85/rb85-4verr-run"
+datafile_base = "../data/magmom/rb87/rb87-magmom-run"
 I_data = []
 f_data = []
 
-for j in range(1,11):
+for j in range(1,21):
     datafile_list.append(datafile_base + str(j) + '.txt')
 
 def calcEvsB(datafile,mid_freq,step_freq,num_freq,I_maxwell):
@@ -108,6 +109,7 @@ def calcEvsB(datafile,mid_freq,step_freq,num_freq,I_maxwell):
 
     B_per_I = func.MaxwellBperI #[unit T/A]
     B_maxwell = B_per_I*I_maxwell 
+    sig_B_maxwell = math.sqrt( (func.sig_MaxwellBperI*I_maxwell)**2 + (sig_I_maxwell*B_maxwell)**2  )
 
     deltaE = func.freq2ev(res_peak)
     print("maxwell field = %f T" % B_maxwell)
@@ -116,18 +118,18 @@ def calcEvsB(datafile,mid_freq,step_freq,num_freq,I_maxwell):
     #-------------------------------------
     #UNCOMMENT TO PRINT RESULT TO FILE
     #-------------------------------------
-#    outFile = open("../data/MagMomMeas-Rb87.txt","a")
-#    outFile.write(str(deltaE)+"	" + str(B_maxwell)  + "\n")
-#    outFile.close()
+    outFile = open("../data/magmom/rb87/MagMomMeas-Rb87.txt","a")
+    outFile.write(str(deltaE)+"	" + str(B_maxwell) + "	" + str(sig_B_maxwell) + "\n")
+    outFile.close()
 
-    plt.show()
+    #plt.show()
     return
 
 
-#for k in range(0,10):
-    #calcEvsB(datafile_list[k],mid_freq_list[k],step_freq_list[k],num_freq_list[k],I_maxwell_list[k])
+for k in range(0,20):
+    calcEvsB(datafile_list[k],mid_freq_list[k],step_freq_list[k],num_freq_list[k],I_maxwell_list[k])
 
-calcEvsB("../data/multi_splitting/rb85/rb85_multi_splitting.txt",2079.0,20.0e-3,1000,-975.9)
+#calcEvsB("../data/multi_splitting/rb85/rb85_multi_splitting.txt",2079.0,20.0e-3,1000,-975.9)
 
 	
 
