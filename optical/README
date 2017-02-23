@@ -1,11 +1,7 @@
 This folder contains Optical Pumping Experiement related information.
 
 TODO -- krw:
-1) put error bars on magnetic moment plot
-     - deltaE error bars DONE
-     - B_{app} error bars NEEDED
-2) hyperfine splitting spectrum plot
-3) error bars onto cross section plot
+3) ln(I/I_0) error bars onto cross section plot
 
 TODO -- dw: 
 2) doublecheck Maxwell coils dimensions and the number of turns of each coil
