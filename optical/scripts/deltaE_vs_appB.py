@@ -14,6 +14,7 @@ def linear(x,a,b):
 
 deltaE85_list = []
 appB85_list   = []
+sig_appB85    = []
 #deltaE_relErr = 0.00176702 #from ambient field energy shift distributions
 # ^ data shows absolute error is (more or less) constant, not relative error
 
@@ -22,8 +23,10 @@ with open("../data/magmom/rb85/MagMomMeas-Rb85.txt",newline='') as csvfile:
      for row in reader:
           dE85 = float(row[0])*1.0e9 #[neV]
           B85  = float(row[1])*1.0e6 #[uT]
+          sigB85 = float(row[2])*1.0e6*3 #[uT] 3 sigma error bars!
           deltaE85_list.append(dE85)
           appB85_list.append(abs(B85))
+          sig_appB85.append(sigB85)
 
 popt85, pcov85 = curve_fit(linear,appB85_list,deltaE85_list)
 x85 = np.linspace(min(appB85_list),max(appB85_list), num=1000)
@@ -45,7 +48,7 @@ plt.gcf().subplots_adjust(bottom=0.1)
 
 # put rb85 data on plot
 plt.scatter(appB85_list, deltaE85_list,label='$^{85}$Rb data')
-plt.errorbar(appB85_list,deltaE85_list,yerr=deltaE85_err,label='50 $\sigma$ error bars',color='black')
+plt.errorbar(appB85_list,deltaE85_list,xerr=sig_appB85,yerr=deltaE85_err,label='50 $\sigma_{_E}$, 3 $\sigma_{_B}$ error bars',color='black',fmt='.')
 plt.plot(x85,linear(x85,*popt85),color='blue',label='$^{85}$Rb fit')
 plt.text(20.,0.7,r'\textbf{$^{85}$Rb slope = (%.5f +/- %.5f)} $\times10^{-3}$ $\frac{ev}{T}$' % (popt85[1],perr85[1]), ha='left', va='center',fontsize=16,fontweight='bold')
 
@@ -73,7 +76,7 @@ perr87 = np.sqrt(np.diag(pcov87))
 deltaE87_err    = [0.001318999*50]*len(deltaE87_list) #50 sigma error bars!
 
 plt.scatter(appB87_list, deltaE87_list,label='$^{87}$Rb data',color='red')
-plt.errorbar(appB87_list,deltaE87_list,xerr=sig_appB87,yerr=deltaE87_err,color='black')
+plt.errorbar(appB87_list,deltaE87_list,xerr=sig_appB87,yerr=deltaE87_err,color='black',fmt='.')
 plt.plot(x87,linear(x87,*popt87),label='$^{87}$Rb fit',color='red')
 plt.text(20.,0.2,r'\textbf{$^{87}$Rb slope = (%f +/- %f)} $\times10^{-3}$ $\frac{ev}{T}$' % (popt87[1],perr87[1]), ha='left', va='center',fontsize=16,fontweight='bold')
 
