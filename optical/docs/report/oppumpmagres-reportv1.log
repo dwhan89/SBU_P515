@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  23 FEB 2017 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  27 FEB 2017 17:48
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -283,83 +283,170 @@ e
 
 
 
-LaTeX Warning: Reference `exp_schematic' on page 1 undefined on input line 45.
+LaTeX Warning: Reference `exp_schematic' on page 1 undefined on input line 62.
 
 <exp_setup_schematic.png, id=1, 749.04843pt x 508.90125pt>
 File: exp_setup_schematic.png Graphic file (type png)
 
 <use exp_setup_schematic.png>
-Package pdftex.def Info: exp_setup_schematic.png used on input line 47.
+Package pdftex.def Info: exp_setup_schematic.png used on input line 73.
 (pdftex.def)             Requested size: 246.0pt x 167.13034pt.
-
-
-LaTeX Warning: Reference `maxcoil' on page 1 undefined on input line 56.
-
-
-LaTeX Warning: Reference `exp_photo' on page 1 undefined on input line 56.
-
-<exp_setup_photo.png, id=2, 733.23938pt x 609.02531pt>
-File: exp_setup_photo.png Graphic file (type png)
-
-<use exp_setup_photo.png>
-Package pdftex.def Info: exp_setup_photo.png used on input line 59.
-(pdftex.def)             Requested size: 246.0pt x 204.32443pt.
  [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./ex
 p_setup_schematic.png>]
 
-LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 97.
+LaTeX Warning: Reference `maxcoil' on page 2 undefined on input line 86.
 
 
-LaTeX Warning: Reference `eq:leading_h' on page 2 undefined on input line 102.
+LaTeX Warning: Reference `exp_photo' on page 2 undefined on input line 88.
+
+<exp_setup_photo.png, id=18, 733.23938pt x 609.02531pt>
+File: exp_setup_photo.png Graphic file (type png)
+
+<use exp_setup_photo.png>
+Package pdftex.def Info: exp_setup_photo.png used on input line 94.
+(pdftex.def)             Requested size: 246.0pt x 204.32443pt.
 
 
-LaTeX Warning: Command \l invalid in math mode on input line 118.
+LaTeX Warning: Reference `eq:leading_h' on page 2 undefined on input line 114.
+
+
+Underfull \hbox (badness 2600) in paragraph at lines 133--136
+[]\OT1/cmr/m/n/9 In this ex-per-i-ment, we use RB atoms which have
+ []
+
+
+Underfull \hbox (badness 3471) in paragraph at lines 133--136
+\OT1/cmr/m/n/9 37 elec-trons. Its full ground state con-fig-u-ra-tion is
+ []
+
+
+LaTeX Warning: Reference `fig:rb87_elevel' on page 2 undefined on input line 14
+2.
 
 <Rb87_elevel_ver2.png, id=19, 594.72188pt x 656.4525pt>
 File: Rb87_elevel_ver2.png Graphic file (type png)
 
 <use Rb87_elevel_ver2.png>
-Package pdftex.def Info: Rb87_elevel_ver2.png used on input line 128.
+Package pdftex.def Info: Rb87_elevel_ver2.png used on input line 151.
 (pdftex.def)             Requested size: 246.0pt x 271.53122pt.
  [2 <./exp_setup_photo.png>]
 
 LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
- on input line 146.
+ on input line 159.
 
 
-LaTeX Warning: Reference `eq:idealgas' on page 3 undefined on input line 158.
+LaTeX Warning: Reference `fig:rb87_elevel' on page 3 undefined on input line 17
+1.
 
 
-LaTeX Warning: Reference `eq:PofT' on page 3 undefined on input line 158.
+LaTeX Warning: Reference `fig:rb87_elevel' on page 3 undefined on input line 17
+8.
 
 
-LaTeX Warning: Reference `RbXsection' on page 3 undefined on input line 163.
+LaTeX Warning: Reference `fig:rb87_elevel2' on page 3 undefined on input line 1
+87.
 
-<rb-absorption-xsection.png, id=28, 578.16pt x 433.62pt>
+<Rb87_elevel.png, id=29, 469.00218pt x 571.38469pt>
+File: Rb87_elevel.png Graphic file (type png)
+ <use Rb87_elevel.png>
+Package pdftex.def Info: Rb87_elevel.png used on input line 190.
+(pdftex.def)             Requested size: 246.0pt x 299.69374pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 207.
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <9> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 207.
+ [3 <./Rb87_elevel_ver2.png> <./Rb87_elevel.png>]
+
+LaTeX Warning: Reference `fig:rb87_elevel2' on page 4 undefined on input line 2
+12.
+
+
+LaTeX Warning: Reference `eq:idealgas' on page 4 undefined on input line 241.
+
+
+LaTeX Warning: Reference `eq:PofT' on page 4 undefined on input line 241.
+
+
+LaTeX Warning: Reference `RbXsection' on page 4 undefined on input line 246.
+
+<rb-absorption-xsection.png, id=33, 578.16pt x 433.62pt>
 File: rb-absorption-xsection.png Graphic file (type png)
 
 <use rb-absorption-xsection.png>
-Package pdftex.def Info: rb-absorption-xsection.png used on input line 169.
+Package pdftex.def Info: rb-absorption-xsection.png used on input line 252.
 (pdftex.def)             Requested size: 246.0pt x 184.49448pt.
 Missing character: There is no Õ in font cmr9!
 Missing character: There is no Õ in font cmr9!
- <magmom.png, id=30, 578.16pt x 433.62pt>
-File: magmom.png Graphic file (type png)
 
-<use magmom.png>
-Package pdftex.def Info: magmom.png used on input line 178.
+
+LaTeX Warning: Reference `ResCurve' on page 4 undefined on input line 262.
+
+
+LaTeX Warning: Reference `eq:spin_magnetic_interaction_h' on page 4 undefined o
+n input line 268.
+
+
+LaTeX Warning: Reference `MagMom' on page 4 undefined on input line 270.
+
+<magmom.png, id=35, 578.16pt x 433.62pt>
+File: magmom.png Graphic file (type png)
+ <use magmom.png>
+Package pdftex.def Info: magmom.png used on input line 273.
 (pdftex.def)             Requested size: 246.0pt x 184.49448pt.
- <rb85-hyperfine_split.png, id=31, 578.16pt x 433.62pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./rb-absorption-xsection.png>]
+
+LaTeX Warning: A float is stuck (cannot be placed); try class option [floatfix]
+ on input line 282.
+
+
+LaTeX Warning: Reference `MagMom' on page 5 undefined on input line 285.
+
+
+LaTeX Warning: Reference `eq:H_zeeman_weak_limit' on page 5 undefined on input 
+line 287.
+
+<powerbroad-rb85.png, id=41, 578.16pt x 433.62pt>
+File: powerbroad-rb85.png Graphic file (type png)
+ <use powerbroad-rb85.png>
+Package pdftex.def Info: powerbroad-rb85.png used on input line 303.
+(pdftex.def)             Requested size: 246.0pt x 184.49448pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `HyperFineSplit' on page 5 undefined on input line 311
+.
+
+<rb85-hyperfine_split.png, id=42, 578.16pt x 433.62pt>
 File: rb85-hyperfine_split.png Graphic file (type png)
 
 <use rb85-hyperfine_split.png>
-Package pdftex.def Info: rb85-hyperfine_split.png used on input line 185.
+Package pdftex.def Info: rb85-hyperfine_split.png used on input line 314.
+(pdftex.def)             Requested size: 246.0pt x 184.49448pt.
+
+
+LaTeX Warning: Reference `HyperFineSplit' on page 5 undefined on input line 319
+.
+
+[5 <./magmom.png> <./powerbroad-rb85.png> <./rb85-hyperfine_split.png>]
+<rb85res-ambient-run1.png, id=49, 578.16pt x 433.62pt>
+File: rb85res-ambient-run1.png Graphic file (type png)
+
+<use rb85res-ambient-run1.png>
+Package pdftex.def Info: rb85res-ambient-run1.png used on input line 368.
 (pdftex.def)             Requested size: 246.0pt x 184.49448pt.
 
 No file oppumpmagres-reportv1.bbl.
-[3 <./Rb87_elevel_ver2.png> <./rb-absorption-xsection.png> <./magmom.png>]
-[4 <./rb85-hyperfine_split.png>] (./oppumpmagres-reportv1.aux)
+[6 <./rb85res-ambient-run1.png>] (./oppumpmagres-reportv1.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -369,13 +456,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
 
  ) 
 Here is how much of TeX's memory you used:
- 4111 strings out of 493089
- 55050 string characters out of 6134842
+ 4153 strings out of 493089
+ 55872 string characters out of 6134842
  143132 words of memory out of 5000000
- 7558 multiletter control sequences out of 15000+600000
- 7935 words of font info for 29 fonts, out of 8000000 for 9000
+ 7593 multiletter control sequences out of 15000+600000
+ 8281 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,13n,23p,723b,276s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,13n,23p,395b,274s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -392,11 +479,12 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on oppumpmagres-reportv1.pdf (4 pages, 2073277 bytes).
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
+Output written on oppumpmagres-reportv1.pdf (6 pages, 2190967 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 62 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
