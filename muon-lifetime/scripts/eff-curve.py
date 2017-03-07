@@ -29,8 +29,12 @@ with open(datafile3,newline='') as csvfile:
               eff3_list.append(eff3)
               HV3_list.append(HV3)
 
-plt.scatter(HV2_list,eff2_list,color='red')
-plt.scatter(HV3_list,eff3_list,color='blue')
+plt.xlabel('High Voltage [kV]',size=22,fontweight='bold')
+plt.ylabel('Efficiency [%]',size=22,fontweight='bold')
+plt.grid(True, which='both')
+plt.scatter(HV2_list,eff2_list,color='red',label='S2 efficiency')
+plt.scatter(HV3_list,eff3_list,color='blue',label='S3 efficiency')
+plt.legend(loc=2)
 
 plt.show()
 
