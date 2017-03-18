@@ -1,3 +1,8 @@
+##
+# This code doesn't work
+##
+
+
 import matplotlib.pyplot as plt
 import csv
 import numpy as np
@@ -8,16 +13,11 @@ run_date   = "mar18"
 run_number = 4
 
 input_tmp  = "../data/time_cal/time_calibration_{}_run{}.txt"
-output_tmp = "../data/plots/time_cal_{}_run{}.png"
 
 input_file = u.format_string(input_tmp, run_date, run_number)
-output_file = u.format_string(output_tmp, run_date, run_number)
 
-# plot setting
-lbin = 0
-
+# read in the data file
 num_row = 0 
-
 print("reading ", input_file)
 with open(input_file, newline='') as handle:
     reader = csv.reader(handle, delimiter="=")
@@ -34,20 +34,7 @@ with open(input_file, newline='') as handle:
     # store the data
     i = 0
     for row in reader:
-        data[1][i] = float(row[0])
+        data[1][i] = int(row[0])
+        print(i, data[1][i])
         i += 1
 
-# plot the image
-plt.figure()
-ax = plt.gca()
-
-plt.plot(data[0][lbin:], data[1][lbin:])
-plt.xlabel("MCA Channel Number")
-plt.ylabel("Number of Hits")
-
-ax.fill_between(data[0][lbin:], data[1][lbin:], 0)
-ax.set_ylim([0,50])
-
-print("creating ", output_file)
-plt.savefig(output_file)
-plt.show()

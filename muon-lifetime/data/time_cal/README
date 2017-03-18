@@ -1,2 +1,7 @@
 mar7_run2
 time/bin = 0.0053205512282804065 us/bin
+mar7_run3
+[Note: calibration is done with range 10us. But the muon decay measurment is doen with range 20us.] 
+time/bin = (9.*1.)/(1895.-206.)*2 = 0.010657193605683837 us/bin
+mar18_run4
+time/bin = (19 * 1.03) / (1960. - 112.) = 0.01058982683982684 us/bin
