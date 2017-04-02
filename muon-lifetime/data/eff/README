@@ -1,3 +1,9 @@
 contains data in the format of (efficiency, high voltage setting)
 
 Note: S*-eff-err.txt files contain multiple measurements at specific voltages for error anlaysis.  
+
+standard deviation
+S3: std(x=2.4kV) = 0.6210
+S2: std(x=2.4kV) = 0.3726
+S2: std(x=2.0kV) = 2.5935
+
