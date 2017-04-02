@@ -1,8 +1,12 @@
 import math
 import numpy as np
+import matplotlib
+matplotlib.use('TkAgg') 
 import matplotlib.pyplot as plt
 import csv
 from scipy.optimize import curve_fit
+
+
 
 datafile2 = "../data/eff/S2-eff.txt"
 eff2_list = []
@@ -29,6 +33,9 @@ with open(datafile3,newline='') as csvfile:
               eff3_list.append(eff3)
               HV3_list.append(HV3)
 
+# add a vertical line at x = 2.4k
+plt.axvline(x=2.4, color='k', linestyle='--', label='HV = 2.4kV')
+
 plt.xlabel('High Voltage [kV]',size=22,fontweight='bold')
 plt.ylabel('Efficiency [%]',size=22,fontweight='bold')
 plt.grid(True, which='both')
@@ -36,5 +43,5 @@ plt.scatter(HV2_list,eff2_list,color='red',label='S2 efficiency')
 plt.scatter(HV3_list,eff3_list,color='blue',label='S3 efficiency')
 plt.legend(loc=2)
 
-plt.show()
+plt.show(block=True)
 
