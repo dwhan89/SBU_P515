@@ -1,11 +1,13 @@
+import matplotlib
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import csv
 import numpy as np
 import util as u
 
 # data setting
-run_date   = "mar18"
-run_number = 4
+run_date   = "mar7"
+run_number = 2
 
 input_tmp  = "../data/time_cal/time_calibration_{}_run{}.txt"
 output_tmp = "../data/plots/time_cal_{}_run{}.png"
@@ -25,7 +27,6 @@ with open(input_file, newline='') as handle:
     # count the number of low
     for row in reader:
         num_row += 1
-
     handle.seek(0) # rewind the file 
     
     data       = np.zeros((2, num_row))
@@ -46,8 +47,10 @@ plt.xlabel("MCA Channel Number")
 plt.ylabel("Number of Hits")
 
 ax.fill_between(data[0][lbin:], data[1][lbin:], 0)
-ax.set_ylim([0,50])
+ax.set_ylim([0,1000])
+ax.set_xlim([0,2048])
+
 
 print("creating ", output_file)
 plt.savefig(output_file)
-plt.show()
+plt.show(block=True)
