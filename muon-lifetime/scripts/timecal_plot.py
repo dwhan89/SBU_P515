@@ -6,8 +6,8 @@ import numpy as np
 import util as u
 
 # data setting
-run_date   = "mar7"
-run_number = 2
+run_date   = "mar30"
+run_number = 5
 
 input_tmp  = "../data/time_cal/time_calibration_{}_run{}.txt"
 output_tmp = "../data/plots/time_cal_{}_run{}.png"
@@ -47,7 +47,7 @@ plt.xlabel("MCA Channel Number")
 plt.ylabel("Number of Hits")
 
 ax.fill_between(data[0][lbin:], data[1][lbin:], 0)
-ax.set_ylim([0,1000])
+#ax.set_ylim([0,1000])
 ax.set_xlim([0,2048])
 
 

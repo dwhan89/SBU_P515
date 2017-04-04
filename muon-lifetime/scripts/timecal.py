@@ -9,8 +9,8 @@ import numpy as np
 import util as u
 
 # data setting
-run_date   = "mar7"
-run_number = 2
+run_date   = "mar30"
+run_number = 5
 
 input_tmp  = "../data/time_cal/time_calibration_{}_run{}.txt"
 
