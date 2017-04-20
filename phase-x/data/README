@@ -1,0 +1,67 @@
+Desctription of measurements
+
+Note: 
+theta_o   : initial phase after calibrating for parasitic capacitance
+V_in      : input voltage from lock-in amp
+theta_ext : additional phase such manually applied in order to display the out-of-phase component on the output channel 1
+    
+            theta_true = theta_measured - (theta_o + theta_ext) 
+
+-----------------------------------
+V02 phase tranistion measuremnts
+-----------------------------------
+
+
+Run 1 (April 11th 2017)
+
+#Lock-in Amp Setting
+
+theta_o = 0.17 deg
+f       = 25 KHz
+V_in    = 1 V
+
+#Temp Source Setting
+V_heat  = 48 V (w/ thermal lid )
+V_cool  = 12 V (w/o thermal lid) 
+
+
+-----------------------------------
+V02 phase tranistion measuremnts
+-----------------------------------
+
+### Run 1 (April 18th 2017) ###
+
+Note: we are measuring the absolute maginitude. 
+In order to recover the true value, you should flip the sign 
+
+# Lock-in Amp Setting
+theta_o   = 0.09 deg
+theta_ext = -90.0 deg
+f         = 10 kHz
+V_in      = 2V
+R         = 1050 ohm
+
+# Temp Source Setting
+V_heat  = 48 V (w/ thermal lid )
+V_cool  = 12 V (w/o thermal lid) 
+
+
+### Run 2 (April 20th 2017) ###
+
+Note:
+- LabView software we are using has a problem registering input smaller than 0.1V  
+  We had to apply the manual off-set to make it work.  substract 0.7V from our measumrents
+- Like Run1, we need to flip sign to get the true measurements
+
+# Lock-in Amp Setting
+theta_o   = 0.09 deg
+theta_ext = -90.0 deg
+f         = 10 kHz
+V_in      = 1V
+R         = 1050 ohm
+
+# Temp Source Setting
+V_heat  = 48 V (w/ thermal lid )
+V_cool  = 12 V (w/o thermal lid) 
+
+
