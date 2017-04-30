@@ -37,26 +37,26 @@ def compute_cap(omega, R, Vo, V_meas):
 with open("../data/BaTiO3_Amp_Temp_run2_042017_WARMUP.txt",newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter="\t")
     for row in reader:
-        Vmeas = float(row[2]) - 0.7         #Volts
-        Temp  = float(row[0])               #C
-        C = compute_cap(omega,R,V_o,Vmeas)             #kilo-Ohms
+        Vmeas = float(row[2]) - 0.7                          #Volts
+        Temp  = float(row[0])                                #C
+        C = compute_cap(omega,R,V_o,Vmeas)*1.0e9             #nano-Farad
         C_warm.append(C)
         T_warm.append(Temp)
 
 with open("../data/BaTiO3_Amp_Temp_run2_042017_COOLDOWN.txt",newline='') as csvfile:
     reader = csv.reader(csvfile, delimiter="\t")
     for row in reader:
-        Vmeas = float(row[2]) - 0.7         #Volts
-        Temp  = float(row[0])               #C
-        C = compute_cap(omega,R,V_o,Vmeas)             #kilo-Ohms
+        Vmeas = float(row[2]) - 0.7                          #Volts
+        Temp  = float(row[0])                                #C
+        C = compute_cap(omega,R,V_o,Vmeas)*1.0e9             #nano-Farad
         C_cool.append(C)
         T_cool.append(Temp)
 
-plt.ylim(0.,1.0e-9) 
+plt.ylim(0.,1.0) 
 plt.gcf().subplots_adjust(bottom=0.15,left=0.15,right=0.95)                                      
 plt.scatter(T_warm,C_warm,color='red',label="Warm Up")
 plt.scatter(T_cool,C_cool,color='blue',label="Cool Down")
-plt.ylabel("Capacitance [F]",size=20)
+plt.ylabel("Capacitance [nF]",size=20)
 plt.xlabel("Temperature [$^{\circ}$C]",size=20)
 plt.legend(fontsize=14)
 plt.show()
