@@ -14,7 +14,7 @@ y = np.sin(x)
 fig = plt.figure()
 ax = fig.add_subplot(111)
 
-ax.plot(x,y, alpha=alpha, color = 'r')
+ax.plot(x,y, alpha=alpha, color = 'r', label=r'V(t)')
 plt.axhline(y=1., color='k', linestyle='--')
 plt.axhline(y=-1., color='k', linestyle='--')
 
@@ -34,6 +34,8 @@ ax.yaxis.set_label_coords(0, 1.05)
 
 plt.xlim(0,2.5*np.pi)
 plt.ylim(-1.5, 1.5)
+
+plt.legend(loc="lower left", prop={'size':15})
 plt.tight_layout()
 
 plt.savefig("ac_none.png")
@@ -45,8 +47,8 @@ ax = fig.add_subplot(111)
 
 v_r = np.sin(x)
 i_r = 2.*np.sin(x)
-ax.plot(x,v_r, alpha = alpha, color = 'r')
-ax.plot(x,i_r, alpha = alpha, color = 'b')
+ax.plot(x,v_r, alpha = alpha, color = 'r', label=r'V(t)')
+ax.plot(x,i_r, alpha = alpha, color = 'b', label=r'I(t)')
 plt.axhline(y=1., color='k', linestyle='--')
 plt.axhline(y=2., color='k', linestyle='--')
 
@@ -64,6 +66,8 @@ ax.xaxis.set_label_coords(1.05, 0.5)
 
 plt.xlim(0,2.5*np.pi)
 plt.ylim(-2.5, 2.5)
+
+plt.legend(loc="lower left", prop={'size':15})
 plt.tight_layout()
 
 plt.savefig("ac_ro.png")
@@ -105,6 +109,7 @@ hl = np.sqrt(3)
 plt.xlim(-hl,hl)
 plt.ylim(-hl,hl)
 
+plt.legend(loc="lower left", prop={'size':10})
 plt.tight_layout()
 
 plt.savefig('phas_ro.png')
@@ -116,8 +121,8 @@ ax = fig.add_subplot(111)
 
 v_r = np.sin(x)
 i_r = 2.*np.sin(x + np.pi/2)
-ax.plot(x,v_r, alpha = alpha, color = 'r')
-ax.plot(x,i_r, alpha = alpha, color = 'b')
+ax.plot(x,v_r, alpha = alpha, color = 'r', label=r'V(t)')
+ax.plot(x,i_r, alpha = alpha, color = 'b', label=r'I(t)')
 plt.axhline(y=1., color='k', linestyle='--')
 plt.axhline(y=2., color='k', linestyle='--')
 
@@ -135,6 +140,8 @@ ax.xaxis.set_label_coords(1.05, 0.5)
 
 plt.xlim(0,2.5*np.pi)
 plt.ylim(-2.5, 2.5)
+
+plt.legend(loc="lower left", prop={'size':15})
 plt.tight_layout()
 
 plt.savefig('ac_co.png')
