@@ -120,7 +120,7 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 
 v_r = np.sin(x)
-i_r = 2.*np.sin(x + np.pi/2)
+i_r = 2.*np.sin(x - np.pi/2)
 ax.plot(x,v_r, alpha = alpha, color = 'r', label=r'V(t)')
 ax.plot(x,i_r, alpha = alpha, color = 'b', label=r'I(t)')
 plt.axhline(y=1., color='k', linestyle='--')
@@ -154,10 +154,10 @@ ax = fig.add_subplot(111, aspect='equal')
 cos_t = np.cos(np.pi/4)
 ax.arrow(0, 0, cos_t, cos_t, fc="r", ec="r",
                 head_width=0.05, head_length=0.1 , alpha=alpha)
-ax.arrow(0, 0, -2*cos_t, 2*cos_t, fc="b", ec="b",
+ax.arrow(0, 0, 2*cos_t, -2*cos_t, fc="b", ec="b",
                 head_width=0.05, head_length=0.1 , alpha=alpha)
 plt.plot([cos_t,cos_t],[0, cos_t], ls='--', color='k', alpha=0.5)  
-plt.plot([-2*cos_t,-2*cos_t],[0, 2*cos_t], ls='--', color='k', alpha = 0.5)
+plt.plot([2*cos_t,2*cos_t],[0, -2*cos_t], ls='--', color='k', alpha = 0.5)
 
 ax.spines['left'].set_position('center')
 ax.spines['right'].set_color('none')
@@ -173,9 +173,9 @@ plt.yticks([])
 #ax.yaxis.set_label_coords(0.5, 1.03)
 
 ax.text(cos_t + 0.1 , cos_t - 0.1, r'$V_o$', fontsize=12)
-ax.text(-2*cos_t + 0.1 , 2*cos_t - 0.1, r'$I_o$', fontsize=12)
+ax.text(2*cos_t + 0.1 , -2*cos_t + 0.1, r'$I_o$', fontsize=12)
 ax.text(cos_t, -0.2, r'$V(t)$', fontsize=12)
-ax.text(-2*cos_t, -0.2, r'$I(t)$', fontsize=12)
+ax.text(2*cos_t, -0.2, r'$I(t)$', fontsize=12)
 ax.text(0.2, 0.1, r'$\omega t$', fontsize=12)
 
 
