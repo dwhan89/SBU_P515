@@ -25,7 +25,7 @@ T_cool = []
 # define helper functions
 def compute_cap(omega, R, Vo, V_meas):
     delta = V_meas/Vo
-    return 1/(omega*R)*(1-math.sqrt(1-4*delta**2))/(2*delta)
+    return 1/(omega*R)*(1-np.sqrt(1-4*delta**2))/(2*delta)
 
 #def compute_cap2(omega, R, Vo, V_meas):
 #    delta = (Vo/V_meas)
