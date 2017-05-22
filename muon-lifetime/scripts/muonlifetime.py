@@ -12,13 +12,16 @@ plt.rcParams['text.latex.preamble'] = [r'\boldmath']
 #    return C*np.exp(-t/tau) + A1*np.exp(-t/tau1) + A2*np.exp(-t/tau2)
 
 def muonFit(t,A1,tau1,A2,tau2):
-    return 11. + A1*np.exp(-t/tau1) + A2*np.exp(-t/tau2)
+    return 11. + A1*np.exp(-t/tau1) + A2*np.exp(-t/tau2) 
 
 def expon(t,A,tau):
     return A*np.exp(-t/tau)
 
+def gaussian(t,a,b,c):
+    return a*np.exp(-(t-b)**2/(2*c**2))
+
 #p_0 = [1000,2,1000,2,10000,2]
-p_0 = [1000,2,10000,2]
+p_0 = [1000,2,10000,2 ]
 
 binnum = []
 tbins  = []
@@ -54,6 +57,7 @@ perr = np.sqrt(np.diag(pcov))
 #const = [popt[0]]*len(t)
 const = [11.]*len(t)
 
+plt.subplot(211)
 plt.gcf().set_size_inches(15,5)
 plt.ylim([1,1.0e5])
 #plt.xlim([0,2050])
@@ -75,8 +79,18 @@ plt.text(2.,1.e+4,r'\textbf{lifetimes: %f, %f} $\mu s$' % (popt[1],popt[3]), ha=
 #print("C = %f, A1 = %f, tau1 = %f, A2 = %f, tau2 = %f" % (popt[0],popt[1],popt[2],popt[3],popt[4]))
 #print("\u03C3(C) = %f, \u03C3(A1) = %f, \u03C3(tau1) = %f, \u03C3(A2) = %f, \u03C3(tau2) = %f" % (perr[0],perr[1],perr[2],perr[3],perr[4]))
 
+plt.subplot(212)
+
+
+binnum = np.array(binnum)
+tbins  = np.array(tbins)
+tbins  = tbins[binnum > 0.2]
+binnum = binnum[binnum > 0.2]
+plt.plot(binnum,(tbins-muonFit(binnum,*popt)))
+#print(popt[4],popt[5])
+
 #print("lifetimes = %f, %f, %f" % (popt[1],popt[3],popt[5]))
 print("lifetimes = %f, %f" % (popt[1],popt[3]) )
 
-plt.show()
-
+plt.show(block=True)
+plt.savefig("muonlifetime.png")
